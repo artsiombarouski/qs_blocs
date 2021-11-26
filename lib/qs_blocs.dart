@@ -3,3 +3,7 @@ export 'package:qs_blocs/src/fetch.cubit.dart';
 export 'package:qs_blocs/src/widgets/qs_fetch.widget.dart';
 export 'package:qs_blocs/src/widgets/qs_list.widget.dart';
 export 'package:qs_blocs/src/network_dependent.cubit.dart';
+export 'package:qs_blocs/src/models/qs.model.dart';
+export 'package:qs_blocs/src/models/qs.model.store.dart';
+export 'package:qs_blocs/src/models/qs_dto.model.dart';
+export 'package:qs_blocs/src/models/qs_dto.model.store.dart';
