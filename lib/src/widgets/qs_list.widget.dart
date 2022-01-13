@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qs_blocs/qs_blocs.dart';
 
-typedef _QsCubitResolver<T, E> = ListCubit<T, E> Function(
+typedef QsListCubitResolver<T, E> = ListCubit<T, E> Function(
   BuildContext context,
 );
 
@@ -30,7 +29,7 @@ typedef QsListWrapperBuilder<T, E> = Widget Function(
 );
 
 class QsListWidgetParams<T, E> {
-  final _QsCubitResolver<T, E> cubitResolver;
+  final QsListCubitResolver<T, E> cubitResolver;
   final QsListLoadBuilder<T, E> loadBuilder;
   final QsListErrorBuilder<T, E> errorBuilder;
   final QsListContentBuilder<T, E> contentBuilder;

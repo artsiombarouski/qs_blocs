@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qs_blocs/qs_blocs.dart';
 
-typedef _QsCubitResolver<T, E> = FetchCubit<T, E> Function(
+typedef QsFetchCubitResolver<T, E> = FetchCubit<T, E> Function(
   BuildContext context,
 );
 
@@ -30,7 +29,7 @@ typedef QsFetchWrapperBuilder<T, E> = Widget Function(
 );
 
 class QsFetchWidgetParams<T, E> {
-  final _QsCubitResolver<T, E> cubitResolver;
+  final QsFetchCubitResolver<T, E> cubitResolver;
   final QsFetchLoadBuilder<T, E> loadBuilder;
   final QsFetchErrorBuilder<T, E> errorBuilder;
   final QsFetchContentBuilder<T, E> contentBuilder;
