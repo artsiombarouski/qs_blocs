@@ -11,6 +11,10 @@ abstract class QsDtoModelStore<T extends QsDtoModel<T, D>, D>
 
   dynamic keyFromDto(D dto);
 
+  T obtainRaw(Map<String, dynamic> json) {
+    return obtain(createDto(json));
+  }
+
   T obtain(D data) {
     final existsModel = get(keyFromDto(data));
     if (existsModel != null) {
