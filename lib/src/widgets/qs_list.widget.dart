@@ -137,7 +137,7 @@ class _QsListWidgetState<T, E> extends State<QsListWidget<T, E>> {
       return;
     }
     _isNextPageRequested = true;
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       cubit.next(silent: true).whenComplete(() => _isNextPageRequested = false);
     });
   }
