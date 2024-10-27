@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:synchronized/synchronized.dart';
+import 'package:collection/src/iterable_extensions.dart';
 
 class ConnectivityHelper {
   static ConnectivityHelper? _instance;
@@ -43,9 +44,13 @@ class ConnectivityHelper {
 
   bool get isConnected => _lastKnownResult != ConnectivityResult.none;
 
-  void _updateConnectionState(ConnectivityResult result) {
-    if (_lastKnownResult != result) {
-      _lastKnownResult = result;
+  void _updateConnectionState(List<ConnectivityResult> result) {
+    final targetResult =
+        result.firstWhereOrNull((e) => e == ConnectivityResult.none) ??
+            result.firstOrNull ??
+            ConnectivityResult.none;
+    if (_lastKnownResult != targetResult) {
+      _lastKnownResult = targetResult;
       sink.add(isConnected);
     }
   }

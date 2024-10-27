@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:qs_blocs/qs_blocs.dart';
 import 'package:qs_blocs_example/app_error.dart';
 

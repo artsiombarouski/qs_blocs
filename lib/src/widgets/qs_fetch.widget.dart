@@ -56,7 +56,7 @@ class QsFetchState<T, E> {
 class QsFetchWidget<T, E> extends StatefulWidget {
   final QsFetchWidgetParams<T, E> params;
 
-  const QsFetchWidget({Key? key, required this.params}) : super(key: key);
+  const QsFetchWidget({super.key, required this.params});
 
   @override
   State<QsFetchWidget<T, E>> createState() => _QsFetchWidgetState<T, E>();
@@ -112,8 +112,8 @@ class _QsFetchWidgetState<T, E> extends State<QsFetchWidget<T, E>> {
       return widget.params.wrapperBuilder!(context, state, child);
     }
     return RefreshIndicator(
-      child: child,
       onRefresh: state.requestRefresh,
+      child: child,
     );
   }
 

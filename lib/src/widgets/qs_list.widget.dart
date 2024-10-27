@@ -64,13 +64,13 @@ class QsListState<T, E> {
 class QsListWidget<T, E> extends StatefulWidget {
   final QsListWidgetParams<T, E> params;
 
-  const QsListWidget({Key? key, required this.params}) : super(key: key);
+  const QsListWidget({super.key, required this.params});
 
   @override
-  _QsListWidgetState<T, E> createState() => _QsListWidgetState<T, E>();
+  QsListWidgetState<T, E> createState() => QsListWidgetState<T, E>();
 }
 
-class _QsListWidgetState<T, E> extends State<QsListWidget<T, E>> {
+class QsListWidgetState<T, E> extends State<QsListWidget<T, E>> {
   late ListCubit<T, E> cubit;
   bool _isNextPageRequested = false;
 
@@ -127,8 +127,8 @@ class _QsListWidgetState<T, E> extends State<QsListWidget<T, E>> {
       return widget.params.wrapperBuilder!(context, state, child);
     }
     return RefreshIndicator(
-      child: child,
       onRefresh: state.requestRefresh,
+      child: child,
     );
   }
 

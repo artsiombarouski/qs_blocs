@@ -9,7 +9,7 @@ abstract class NetworkDependentCubit<T> extends Cubit<T> {
 
   bool get isConnected => _lastConnectionState == true;
 
-  NetworkDependentCubit(T initialState) : super(initialState) {
+  NetworkDependentCubit(super.initialState) {
     final connectivityHelper = ConnectivityHelper.instance;
     _subscription = connectivityHelper.stream.listen(_updateConnectionState);
     connectivityHelper.init().then(_updateConnectionState);
